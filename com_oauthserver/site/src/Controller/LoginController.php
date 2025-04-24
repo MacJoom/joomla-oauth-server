@@ -262,7 +262,7 @@ class LoginController extends BaseController
 
             // Build the cleared current uri and encode to pass it to the login form as a callback uri.
             $return   = http_build_query(['return' => base64_encode($uri->toString(['scheme', 'user', 'pass', 'host', 'port', 'path']))]);
-            $redirect = Route::_('index.php?option=com_users&view=login&' . $return);
+            $redirect = Route::_('index.php?option=com_users&view=login&' . $return, false);
 
             // The current page is not tied to any menu item, so the main page item id will be added to the route. It needs to be removed.
             $redirect = preg_replace('/((&|&amp;)itemid=\d+)/i', '', $redirect);
